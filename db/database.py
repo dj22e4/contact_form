@@ -37,6 +37,14 @@ class Database:
         self._session = self._Session()
         return self
 
+    def query(self, model, **filters):
+        if not self._session:
+            raise RuntimeError('You must create or open a database before performing this action!')
+        query = self._session.query(model)
+        for key, value in filters.items():
+            query = query.filter(getattr(model, key) == value)
+        return query.all()
+
     def add(self, item):
         if not self._session:
             raise RuntimeError('You must create or open a database before performing this action!')

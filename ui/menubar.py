@@ -1,4 +1,5 @@
 from config import BACKGROUND, FOREGROUND, SELECTED
+from ui import EventHandler
 import tkinter as tk
 
 class Menubar(tk.Frame):
@@ -31,6 +32,6 @@ class Menubar(tk.Frame):
         self._about_button.pack(side='left')
         self._about_menu = tk.Menu(self._about_button, tearoff=0, background=BACKGROUND, foreground=FOREGROUND,
                             activebackground=SELECTED, activeforeground=FOREGROUND)
-        self._about_menu.add_command(label='Help', command=None) # TODO
-        self._about_menu.add_command(label='Credits', command=None) # TODO
+        self._about_menu.add_command(label='Help', command=EventHandler.display_help)
+        self._about_menu.add_command(label='Credits', command=EventHandler.display_credits)
         self._about_button.config(menu=self._about_menu)
