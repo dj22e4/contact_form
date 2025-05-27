@@ -1,7 +1,9 @@
 TITLE = 'Altar Worker Contact Form'
-WIDTH, HEIGHT = 1024, 768
+WIDTH = 1024
+HEIGHT = 768
 RESIZABLE = True
+ICON = 'assets/icon.png'
+
 BACKGROUND ='#3F3F3F'
 FOREGROUND = '#ffffff'
 SELECTED = '#696969'
-ICON = 'assets/icon.png'

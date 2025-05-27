@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-from ui.window import render_window
+from config import TITLE, WIDTH, HEIGHT, RESIZABLE
+from ui import Window
 
 if __name__ == '__main__':
-    render_window()
+    Window(TITLE, WIDTH, HEIGHT, RESIZABLE).render()
