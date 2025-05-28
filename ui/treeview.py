@@ -71,3 +71,6 @@ class Treeview(tk.Frame):
                 self._tree.selection.set(item)
             self._menu.post(event.x_root, event.y_root)
         self._tree.bind('<Button-3>', helper)
+
+    def _refresh_fields(self):
+        pass

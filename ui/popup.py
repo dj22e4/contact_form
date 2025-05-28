@@ -11,6 +11,7 @@ class Popup(tk.Toplevel):
         self._width = width
         self._height = height
         self._mode = mode
+        self._data = {}
 
     def render(self):
         self._create()
