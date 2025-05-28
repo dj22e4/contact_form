@@ -12,7 +12,7 @@ class Database:
         return cls._instance
 
     def __init__(self, filepath):
-        if self._instance:
+        if self._initialized:
             return
         if not (filepath or filepath.endswith('.db')):
             raise ValueError('Invalid database path provided!')

@@ -25,16 +25,58 @@ class EventHandler:
         messagebox.showinfo('Credits', credits_text)
 
     @staticmethod
+    def create_database():
+        filepath = filedialog.asksaveasfilename(
+            defaultextension='.db',
+            filetypes=[('SQLite Database', '*.db')]
+        )
+        try:
+            if filepath:
+                db = Database(filepath).create()
+                messagebox.showinfo('Success', f'Successfully created database at "{filepath}"')
+        except Exception as e:
+            messagebox.showerror('Error', f'Failed to create database: {e}')
+
+    @staticmethod
+    def open_database():
+        filepath = filedialog.askopenfilename(
+            defaultextension='.db',
+            filetypes=[('SQLite Database', '*.db')]
+        )
+        try:
+            if filepath:
+                db = Database(filepath).open()
+                messagebox.showinfo('Success', f'Successfully opened database at "{filepath}"')
+        except Exception as e:
+            messagebox.showerror('Error', f'Failed to open database: {e}')
+
+    @staticmethod
+    def save_database():
+        try:
+            db = Database._instance
+            db.save()
+            messagebox.showinfo('Success', 'Database saved successfully.')
+        except Exception as e:
+            messagebox.showerror('Error', f'Failed to save database: {e}')
+
+    @staticmethod
+    def close_database():
+        try:
+            db = Database._instance
+            db.close()
+            messagebox.showinfo('Success', 'Database closed successfully.')
+        except Exception as e:
+            messagebox.showerror('Error', f'Failed to close database: {e}')
+
+    @staticmethod
     def add_row(window):
-        # TODO: implement
-        messagebox.showerror('Error', 'Not implemented yet!')
+        Popup(window, 'Add Row', 300, 300, 'add').render()
 
     @staticmethod
     def modify_selected_row(window):
-        # TODO: implement
-        messagebox.showerror('Error', 'Not implemented yet!')
+        Popup(window, 'Modify Selected Row', 300, 300, 'modify').render()
 
     @staticmethod
-    def delete_selected_row():
+    def delete_selected_row(window):
         # TODO: implement
         messagebox.showerror('Error', 'Not implemented yet!')

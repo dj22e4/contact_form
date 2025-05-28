@@ -16,26 +16,42 @@ class Popup(tk.Toplevel):
         self._create()
         if self._mode == 'add':
             self._render_add_row()
-        elif self.mode == 'modify':
+        elif self._mode == 'modify':
             self._render_modify_row()
         else:
             self._render_filter_row()
 
     def _create(self):
         self.title(self._title)
-        self.geometry(f'{self._width}x{self._height}')
+        x_offset = (self.winfo_screenwidth() - self._width) // 2
+        y_offset = (self.winfo_screenheight() - self._height) // 2
+        self.geometry(f'{self._width}x{self._height}+{x_offset}+{y_offset}')
         self.transient(self._window)
         self.grab_set()
-        self.config(background=BACKGROUND)
+        self._frame = tk.Frame(self)
+        self._frame.config(background=BACKGROUND)
+        self._frame.grid(row=0, column=0, sticky='nsew')
 
     def _render_add_row(self):
         # TODO: implement
-        print('Rendering "Add Row" components...')
+        pass
 
     def _render_modify_row(self):
         # TODO: implement
-        print('Rendering "Modify Row" components...')
+        pass
 
     def _render_filter_row(self):
         # TODO: implement
-        print('Rendering "Filter Row" components...')
+        pass
+
+    def _submit_add(self):
+        # TODO: implement
+        pass
+
+    def _submit_modify(self):
+        # TODO: implement
+        pass
+
+    def _submit_filter(self):
+        # TODO: implement
+        pass

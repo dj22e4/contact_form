@@ -64,7 +64,7 @@ class Treeview(tk.Frame):
                             activebackground=SELECTED, activeforeground=FOREGROUND)
         self._menu.add_command(label='Add Row', command=lambda: EventHandler.add_row(self._window))
         self._menu.add_command(label='Modify Selected Row', command=lambda: EventHandler.modify_selected_row(self._window))
-        self._menu.add_command(label='Delete Selected Row', command=None) # TODO
+        self._menu.add_command(label='Delete Selected Row', command=lambda: EventHandler.delete_selected_row(self._window))
         def helper(event):
             item = self._tree.identify_row(event.y)
             if item:

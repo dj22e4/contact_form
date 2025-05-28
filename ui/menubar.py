@@ -19,10 +19,10 @@ class Menubar(tk.Frame):
         self._file_button.pack(side='left')
         self._file_menu = tk.Menu(self._file_button, tearoff=0, background=BACKGROUND, foreground=FOREGROUND,
                             activebackground=SELECTED, activeforeground=FOREGROUND)
-        self._file_menu.add_command(label='Create Database', command=None) # TODO
-        self._file_menu.add_command(label='Open Database', command=None) # TODO
-        self._file_menu.add_command(label='Save Database', command=None) # TODO
-        self._file_menu.add_command(label='Close Database', command=None) # TODO
+        self._file_menu.add_command(label='Create Database', command=EventHandler.create_database)
+        self._file_menu.add_command(label='Open Database', command=EventHandler.open_database)
+        self._file_menu.add_command(label='Save Database', command=EventHandler.save_database)
+        self._file_menu.add_command(label='Close Database', command=EventHandler.close_database)
         self._file_menu.add_command(label='Exit', command=self._window.quit)
         self._file_button.config(menu=self._file_menu)
 
