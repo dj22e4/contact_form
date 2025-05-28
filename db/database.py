@@ -1,5 +1,5 @@
+from db.models import Base, Contact, Purpose
 from sqlalchemy.orm import sessionmaker
-from db import Base, Contact, Purpose
 from sqlalchemy import create_engine
 
 class Database:
@@ -70,6 +70,7 @@ class Database:
     def close(self):
         if not self._session:
             raise RuntimeError('You must create or open a database before performing this action!')
+        self._session.commit()
         self._session.close()
         self._session = None
         self._Session = None

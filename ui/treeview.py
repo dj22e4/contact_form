@@ -1,4 +1,5 @@
 from config import BACKGROUND, FOREGROUND, SELECTED
+from ui.event import EventHandler
 from tkinter import ttk
 import tkinter as tk
 
@@ -61,8 +62,8 @@ class Treeview(tk.Frame):
     def _menu(self):
         self._menu = tk.Menu(self._tree, tearoff=0, background=BACKGROUND, foreground=FOREGROUND,
                             activebackground=SELECTED, activeforeground=FOREGROUND)
-        self._menu.add_command(label='Add Row', command=None) # TODO
-        self._menu.add_command(label='Modify Selected Row', command=None) # TODO
+        self._menu.add_command(label='Add Row', command=lambda: EventHandler.add_row(self._window))
+        self._menu.add_command(label='Modify Selected Row', command=lambda: EventHandler.modify_selected_row(self._window))
         self._menu.add_command(label='Delete Selected Row', command=None) # TODO
         def helper(event):
             item = self._tree.identify_row(event.y)

@@ -1,5 +1,5 @@
 from config import BACKGROUND, FOREGROUND, SELECTED
-from ui import EventHandler
+from ui.event import EventHandler
 import tkinter as tk
 
 class Menubar(tk.Frame):
@@ -8,10 +8,10 @@ class Menubar(tk.Frame):
         self._window = window
         
     def render(self):
+        self.config(background=BACKGROUND)
         self._file_menu()
         self._about_menu()
         self.pack(side='top', fill='x')
-        self.config(background=BACKGROUND)
 
     def _file_menu(self):
         self._file_button = tk.Menubutton(self, text='Options', background=BACKGROUND, foreground=FOREGROUND,

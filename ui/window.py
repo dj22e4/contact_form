@@ -1,5 +1,6 @@
 from config import BACKGROUND, ICON
-from ui import Menubar, Treeview
+from ui.treeview import Treeview
+from ui.menubar import Menubar
 import tkinter as tk
 
 class Window(tk.Tk):
@@ -12,8 +13,10 @@ class Window(tk.Tk):
 
     def render(self):
         self._setup()
-        Menubar(self).render()
-        Treeview(self).render()
+        self._menubar = Menubar(self)
+        self._menubar.render()
+        self._tree = Treeview(self)
+        self._tree.render()
         self.mainloop()
 
     def _setup(self):

@@ -1,5 +1,7 @@
 from tkinter import messagebox, filedialog
-from db import Database, Contact, Purpose
+from db.models import Contact, Purpose
+from db.database import Database
+from ui.popup import Popup
 
 class EventHandler:
     @staticmethod
@@ -23,12 +25,12 @@ class EventHandler:
         messagebox.showinfo('Credits', credits_text)
 
     @staticmethod
-    def add_row():
+    def add_row(window):
         # TODO: implement
         messagebox.showerror('Error', 'Not implemented yet!')
 
     @staticmethod
-    def modify_selected_row():
+    def modify_selected_row(window):
         # TODO: implement
         messagebox.showerror('Error', 'Not implemented yet!')
 
